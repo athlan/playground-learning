@@ -1,0 +1,7 @@
+ip=33.33.33.66
+hostname=mongodb-course.example.com
+project=projectname
+use_nfs=true
+manifest_file=mongodb-course.pp
+manifests_path=vagrant/puppet/manifests
+module_path=vagrant/puppet/modules

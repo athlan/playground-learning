@@ -1,0 +1,32 @@
+VAGRANTFILE_API_VERSION = "2"
+
+Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
+  config.vm.box = "base"
+  
+  # Include parameters
+  filename = './vagrant/parameters'
+  if !File.exist?(filename) and !File.file?(filename)
+    print "Copy ./vagrant/parameters.dist to ./vagrant/parameters \nand configure it according to your needs.\n"
+    exit
+  end
+  require './vagrant/libs/configuration'
+  parameters = Configuration.get_vars(filename)
+  
+  config.vm.box_url = "http://files.vagrantup.com/precise32.box"
+  
+  # Apply configurations
+  ## Network settings
+  config.vm.hostname = parameters['hostname']
+  config.vm.network :private_network, ip: parameters['ip']
+  
+  #config.vm.synced_folder ".", "/vagrant", :disabled => true
+  #config.vm.synced_folder "home/", "/home/vagrant",
+  #  owner: "vagrant", group: "vagrant", type: "nfs"
+  
+  config.vm.provision :puppet do |puppet|
+    puppet.manifests_path = parameters['manifests_path']
+    puppet.module_path = parameters['module_path']
+    puppet.manifest_file  = parameters['manifest_file']
+    puppet.options = ['--verbose']
+  end
+end

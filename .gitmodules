@@ -1,0 +1,6 @@
+[submodule "mongodb-for-nodejs-developers/vagrant/puppet/modules/mongodb"]
+	path = mongodb-for-nodejs-developers/vagrant/puppet/modules/mongodb
+	url = git@github.com:puppetlabs/puppetlabs-mongodb.git
+[submodule "mongodb-for-nodejs-developers/vagrant/puppet/modules/stdlib"]
+	path = mongodb-for-nodejs-developers/vagrant/puppet/modules/stdlib
+	url = git@github.com:puppetlabs/puppetlabs-stdlib.git
