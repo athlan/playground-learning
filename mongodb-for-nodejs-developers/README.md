@@ -13,15 +13,17 @@ https://university.mongodb.com/courses/10gen/M101JS/2014_June/about
 
 ### Environment
 
-This environment is avaliable under Vagrant machine.
-
-Run Vagrant by typing:
+This environment is avaliable under Vagrant, where Puppet is provisioner. Run Vagrant by typing:
 
 ```
 vagrant up
 ```
 
-And... MongoDB and Nodejs is ready for you!
+And... pooff... MAGIC! MongoDB and Nodejs is ready for you! You can use your machine by logging into:
+
+```
+vagrant ssh
+```
 
 Enjoy,
 

@@ -12,5 +12,10 @@ package { $sysPackages:
 	require => Exec['apt-get update'],
 }
 
+# Install mongodb
 class {'::mongodb::server':
+}
+
+# Install ndejs
+class {'::nodejs':
 }
