@@ -1,0 +1,2 @@
+cur = db.weather.find({ "Wind Direction": { $gte: 180, $lte: 360 } }); null;
+cur.sort({ "Temperature": 1 }).limit(4);
