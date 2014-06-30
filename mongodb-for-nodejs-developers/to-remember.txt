@@ -1,0 +1,14 @@
+Sparse indicies:
+- unique NULL's (unique: true in ensureIndex) are allowed, the duplicates are not noticed
+- but if you find by index (sort), the default cursor is used!!! Performance down
+- you can use .hint({ indexName: 1 }), but you will receive only these items, which has fields in sparse index filled
+- any item that not have field filled will be not returned while .hint()
+- THE BEHAVIOUR between Mongodb 2.4 and 2.6 (2014, Apr) has changed: sparse indicies in 2.6 is not used by default, you have to hint()
+
+Creating indices (in background):
+- there is possibility to create index in background
+- creating indices in background dont block WRITERS
+- it is slower
+- while you have a replica set, you can pull off one instance, create indices in foreground (to speed up) and pull in the instance again
+- A mongod instance can only build one background index at a time per database.
+- Although the database server will continue to take requests, a background index creation still blocks the mongo shell that you are using to create the index.
